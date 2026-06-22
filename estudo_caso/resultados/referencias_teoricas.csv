@@ -1,0 +1,3 @@
+scenario,discipline,mean_wait_A_theoretical,mean_wait_B_theoretical,mean_sojourn_A_theoretical,mean_sojourn_B_theoretical
+fifo_mm1_teorico,fifo,3.0,3.0,4.0,4.0
+prioridade_estrita_teorico,strict_priority,4.0,1.0,5.0,2.0

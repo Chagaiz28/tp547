@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="560" viewBox="0 0 960 560">
+<rect width="100%" height="100%" fill="white"/>
+<text x="480.0" y="36" text-anchor="middle" font-size="24" font-family="Arial">Capacidade de armazenamento x desempenho</text>
+<text x="480.0" y="540" text-anchor="middle" font-size="16" font-family="Arial">capacidade (∞ representada por 40)</text>
+<text x="24" y="280.0" transform="rotate(-90 24 280.0)" text-anchor="middle" font-size="16" font-family="Arial">métrica</text>
+<line x1="80" y1="470" x2="930" y2="470" stroke="#111"/>
+<line x1="80" y1="80" x2="80" y2="470" stroke="#111"/>
+<line x1="80" y1="470.0" x2="930" y2="470.0" stroke="#ddd"/>
+<text x="70" y="475.0" text-anchor="end" font-size="12" font-family="Arial">0.00</text>
+<line x1="80" y1="392.0" x2="930" y2="392.0" stroke="#ddd"/>
+<text x="70" y="397.0" text-anchor="end" font-size="12" font-family="Arial">0.60</text>
+<line x1="80" y1="314.0" x2="930" y2="314.0" stroke="#ddd"/>
+<text x="70" y="319.0" text-anchor="end" font-size="12" font-family="Arial">1.20</text>
+<line x1="80" y1="236.0" x2="930" y2="236.0" stroke="#ddd"/>
+<text x="70" y="241.0" text-anchor="end" font-size="12" font-family="Arial">1.79</text>
+<line x1="80" y1="158.0" x2="930" y2="158.0" stroke="#ddd"/>
+<text x="70" y="163.0" text-anchor="end" font-size="12" font-family="Arial">2.39</text>
+<line x1="80" y1="80.0" x2="930" y2="80.0" stroke="#ddd"/>
+<text x="70" y="85.0" text-anchor="end" font-size="12" font-family="Arial">2.99</text>
+<line x1="80.0" y1="470" x2="80.0" y2="80" stroke="#eee"/>
+<text x="80.0" y="494" text-anchor="middle" font-size="12" font-family="Arial">10</text>
+<line x1="363.3333333333333" y1="470" x2="363.3333333333333" y2="80" stroke="#eee"/>
+<text x="363.3333333333333" y="494" text-anchor="middle" font-size="12" font-family="Arial">20</text>
+<line x1="930.0" y1="470" x2="930.0" y2="80" stroke="#eee"/>
+<text x="930.0" y="494" text-anchor="middle" font-size="12" font-family="Arial">∞</text>
+<polyline points="80.00,156.08 363.33,84.23 930.00,80.00" fill="none" stroke="#2563eb" stroke-width="3"/>
+<circle cx="80.00" cy="156.08" r="4" fill="#2563eb"/>
+<text x="80.00" y="146.08" text-anchor="middle" font-size="11" font-family="Arial">2.41</text>
+<circle cx="363.33" cy="84.23" r="4" fill="#2563eb"/>
+<text x="363.33" y="74.23" text-anchor="middle" font-size="11" font-family="Arial">2.96</text>
+<circle cx="930.00" cy="80.00" r="4" fill="#2563eb"/>
+<text x="930.00" y="70.00" text-anchor="middle" font-size="11" font-family="Arial">2.99</text>
+<polyline points="80.00,282.00 363.33,461.66 930.00,470.00" fill="none" stroke="#dc2626" stroke-width="3"/>
+<circle cx="80.00" cy="282.00" r="4" fill="#dc2626"/>
+<text x="80.00" y="272.00" text-anchor="middle" font-size="11" font-family="Arial">1.44</text>
+<circle cx="363.33" cy="461.66" r="4" fill="#dc2626"/>
+<text x="363.33" y="451.66" text-anchor="middle" font-size="11" font-family="Arial">0.06</text>
+<circle cx="930.00" cy="470.00" r="4" fill="#dc2626"/>
+<text x="930.00" y="460.00" text-anchor="middle" font-size="11" font-family="Arial">0.00</text>
+<polyline points="80.00,237.65 363.33,180.72 930.00,176.27" fill="none" stroke="#16a34a" stroke-width="3"/>
+<circle cx="80.00" cy="237.65" r="4" fill="#16a34a"/>
+<text x="80.00" y="227.65" text-anchor="middle" font-size="11" font-family="Arial">1.78</text>
+<circle cx="363.33" cy="180.72" r="4" fill="#16a34a"/>
+<text x="363.33" y="170.72" text-anchor="middle" font-size="11" font-family="Arial">2.22</text>
+<circle cx="930.00" cy="176.27" r="4" fill="#16a34a"/>
+<text x="930.00" y="166.27" text-anchor="middle" font-size="11" font-family="Arial">2.25</text>
+<line x1="80" y1="517" x2="98" y2="517" stroke="#2563eb" stroke-width="3"/>
+<text x="106" y="522" font-size="13" font-family="Arial">Espera total</text>
+<line x1="260" y1="517" x2="278" y2="517" stroke="#dc2626" stroke-width="3"/>
+<text x="286" y="522" font-size="13" font-family="Arial">Perda total (%)</text>
+<line x1="440" y1="517" x2="458" y2="517" stroke="#16a34a" stroke-width="3"/>
+<text x="466" y="522" font-size="13" font-family="Arial">Fila média</text>
+</svg>
