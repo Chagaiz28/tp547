@@ -44,7 +44,13 @@ Arquivos principais:
 
 ## O que o código faz
 
-O arquivo `simulacao_prioridade_dinamica.py` implementa uma **simulação de eventos discretos**.
+O arquivo `simulacao_prioridade_dinamica.py` implementa uma **simulação de eventos discretos** no estilo dos códigos de aula do professor (baseado em `queuemm1partidas.ipynb`):
+
+- pré-geração de vetores de tempos entre chegadas e de serviço com `np.random.exponential`;
+- índices `k1a`, `k1b`, `k2` para percorrer esses vetores (exatamente como o professor usa `k1` e `k2`);
+- variáveis de estado simples `t`, `ls` (servidor 0/1), `lq` (tamanho da fila);
+- loop principal `while k < n_partidas` (igual ao estilo do professor);
+- três tipos de evento: chegada Classe A, chegada Classe B, partida.
 
 ### Eventos modelados
 - chegada da Classe A;
@@ -134,20 +140,20 @@ Esses valores foram escolhidos porque deixam o sistema estável e, ao mesmo temp
 Valores médios:
 
 - **FIFO**
-  - espera A = `3.1004`
-  - espera B = `3.1085`
-  - espera total = `3.1032`
+  - espera A = `3.0560`
+  - espera B = `3.0509`
+  - espera total = `3.0543`
 
 - **Prioridade estrita**
-  - espera A = `3.9422`
-  - espera B = `1.0107`
-  - espera total = `2.9562`
+  - espera A = `4.0821`
+  - espera B = `1.0099`
+  - espera total = `3.0543`
 
 - **Prioridade dinâmica**
-  - espera A = `3.3075`
-  - espera B = `2.4002`
-  - espera total = `3.0051`
-  - fração promovida da Classe A = `49.36%`
+  - espera A = `3.4790`
+  - espera B = `2.2096`
+  - espera total = `3.0543`
+  - fração promovida da Classe A = `48.65%`
 
 ### Interpretação recomendada
 - a prioridade estrita favorece muito a Classe B, mas penaliza bastante a Classe A;
@@ -155,9 +161,9 @@ Valores médios:
 - o FIFO é o mais equilibrado entre classes, mas não oferece diferenciação de serviço para a Classe B.
 
 ### Ganhos/perdas que podem ser citados
-- a prioridade dinâmica reduziu a espera da Classe A em **16.10%** em relação à prioridade estrita;
-- a espera da Classe B aumentou **137.47%** em relação à prioridade estrita;
-- em comparação ao FIFO, a prioridade dinâmica reduziu a espera da Classe B em **22.79%**.
+- a prioridade dinâmica reduziu a espera da Classe A em **14.78%** em relação à prioridade estrita;
+- a espera da Classe B aumentou **118.79%** em relação à prioridade estrita;
+- em comparação ao FIFO, a prioridade dinâmica reduziu a espera da Classe B em **27.58%**.
 
 ---
 
@@ -166,19 +172,19 @@ Valores médios:
 Resultados médios:
 
 - **T = 1**
-  - espera A = `3.1895`
-  - espera B = `2.7181`
-  - promoção A = `59.64%`
+  - espera A = `3.3727`
+  - espera B = `2.4210`
+  - promoção A = `59.60%`
 
 - **T = 2**
-  - espera A = `3.3316`
-  - espera B = `2.3995`
-  - promoção A = `49.24%`
+  - espera A = `3.4790`
+  - espera B = `2.2096`
+  - promoção A = `48.65%`
 
 - **T = 4**
-  - espera A = `3.5157`
-  - espera B = `2.0189`
-  - promoção A = `34.29%`
+  - espera A = `3.6411`
+  - espera B = `1.8871`
+  - promoção A = `33.70%`
 
 ### Leitura recomendada
 - quanto **menor** o valor de `T`, mais cedo a Classe A sobe de prioridade;
@@ -192,16 +198,16 @@ Resultados médios:
 Resultados médios com política dinâmica:
 
 - **Exponencial**
-  - espera total = `2.9421`
-  - P95 da espera = `10.6733`
+  - espera total = `3.0543`
+  - P95 da espera = `11.5549`
 
 - **Determinística**
-  - espera total = `1.5145`
-  - P95 da espera = `5.4116`
+  - espera total = `1.4818`
+  - P95 da espera = `5.3937`
 
 - **Erlang-2**
-  - espera total = `2.2417`
-  - P95 da espera = `8.1403`
+  - espera total = `2.2912`
+  - P95 da espera = `8.4435`
 
 ### Interpretação recomendada
 - reduzir a variabilidade do tempo de serviço melhora fortemente o desempenho da fila;
@@ -215,16 +221,16 @@ Resultados médios com política dinâmica:
 Resultados médios com política dinâmica:
 
 - **Buffer infinito**
-  - espera total = `2.9916`
+  - espera total = `3.0543`
   - perda = `0%`
 
 - **Buffer 20**
-  - espera total = `2.9591`
-  - perda = `0.06%`
+  - espera total = `3.0048`
+  - perda = `0.12%`
 
 - **Buffer 10**
-  - espera total = `2.4080`
-  - perda = `1.44%`
+  - espera total = `2.4074`
+  - perda = `1.46%`
 
 ### Interpretação recomendada
 - buffers menores reduzem a ocupação e o atraso médio, mas introduzem perda;
@@ -242,9 +248,9 @@ O código compara os resultados simulados com fórmulas conhecidas para dois cas
 
 Checagem obtida:
 - FIFO teórico: espera A = `3.0000`, espera B = `3.0000`
-- FIFO simulado: espera A = `3.1004`, espera B = `3.1085`
+- FIFO simulado: espera A = `3.0560`, espera B = `3.0509`
 - Prioridade estrita teórica: espera A = `4.0000`, espera B = `1.0000`
-- Prioridade estrita simulada: espera A = `3.9422`, espera B = `1.0107`
+- Prioridade estrita simulada: espera A = `4.0821`, espera B = `1.0099`
 
 Interpretação: a proximidade entre teoria e simulação ajuda a sustentar a corretude do simulador.
 

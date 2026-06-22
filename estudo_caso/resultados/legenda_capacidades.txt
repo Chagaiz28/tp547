@@ -1,1 +1,0 @@
-No gráfico de armazenamento, o ponto x=40 representa o buffer infinito, apenas para permitir a visualização em linha.
