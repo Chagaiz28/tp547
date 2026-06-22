@@ -115,13 +115,14 @@ def default_scenarios() -> list[ScenarioConfig]:
         "target_completions": 25000,
         "replications": 7,
     }
+    base_without_threshold = {k: v for k, v in base.items() if k != "age_threshold"}
     return [
         ScenarioConfig(group="disciplinas", name="fifo_mm1", discipline="fifo", **base),
         ScenarioConfig(group="disciplinas", name="prioridade_estrita", discipline="strict_priority", **base),
         ScenarioConfig(group="disciplinas", name="prioridade_dinamica", discipline="dynamic_aging", **base),
-        ScenarioConfig(group="sensibilidade_T", name="prioridade_dinamica_T1", discipline="dynamic_aging", age_threshold=1.0, **{k: v for k, v in base.items() if k != "age_threshold"}),
-        ScenarioConfig(group="sensibilidade_T", name="prioridade_dinamica_T2", discipline="dynamic_aging", age_threshold=2.0, **{k: v for k, v in base.items() if k != "age_threshold"}),
-        ScenarioConfig(group="sensibilidade_T", name="prioridade_dinamica_T4", discipline="dynamic_aging", age_threshold=4.0, **{k: v for k, v in base.items() if k != "age_threshold"}),
+        ScenarioConfig(group="sensibilidade_T", name="prioridade_dinamica_T1", discipline="dynamic_aging", age_threshold=1.0, **base_without_threshold),
+        ScenarioConfig(group="sensibilidade_T", name="prioridade_dinamica_T2", discipline="dynamic_aging", age_threshold=2.0, **base_without_threshold),
+        ScenarioConfig(group="sensibilidade_T", name="prioridade_dinamica_T4", discipline="dynamic_aging", age_threshold=4.0, **base_without_threshold),
         ScenarioConfig(group="distribuicoes_servico", name="dinamica_servico_exponencial", discipline="dynamic_aging", service_distribution="exponential", **base),
         ScenarioConfig(group="distribuicoes_servico", name="dinamica_servico_deterministico", discipline="dynamic_aging", service_distribution="deterministic", **base),
         ScenarioConfig(group="distribuicoes_servico", name="dinamica_servico_erlang2", discipline="dynamic_aging", service_distribution="erlang2", **base),
@@ -652,8 +653,7 @@ def write_charts(output_dir: Path, summary_rows: list[dict[str, Any]]) -> None:
         "capacidade (∞ representada por 40)",
         "métrica",
     )
-    for src, dst in zip(["40"], ["∞"]):
-        chart_svg = chart_svg.replace(f">{src}<", f">{dst}<")
+    chart_svg = chart_svg.replace(">40<", ">∞<")
     (output_dir / "grafico_armazenamento.svg").write_text(chart_svg, encoding="utf-8")
 
     (output_dir / "legenda_capacidades.txt").write_text(
